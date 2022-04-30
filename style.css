@@ -18,7 +18,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-.fas {
+.fa-solid {
   color: var(--font-color);
   font-size: 35px;
 }
@@ -213,7 +213,7 @@ select > option {
     max-width: 95vw;
   }
 
-  .fas {
+  .fa-solid {
     font-size: 20px;
   }
 
