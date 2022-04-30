@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Video Player</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +17,36 @@
     <!-- https://pixabay.com/videos/download/video-31377_tiny.mp4?attachment -->
     <div class="player">
         <video src="https://pixabay.com/videos/download/video-28745_source.mp4?attachment" class="video" playsinline></video>
+    </div>
+    <!-- Show controls -->
+    <div class="show-controls">
+        <!-- Controls Container -->
+        <div class="controls-container">
+            <!-- Progress Bar -->
+            <div class="progress-range" title="Seek">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="control-group">
+                <!-- Left Controls -->
+                <div class="controls-left">
+                    <!-- Play/Pause -->
+                    <div class="play-controls">
+                        <i class="fa-solid fa-play" title="Play" id="play-btn"></i>
+                    </div>
+                    <!-- Volume -->
+                    <div class="volume">
+                        <div class="volume-icon">
+                            <i class="fa-solid fa-volume-high" title="Mute" id="volume-icon"></i>
+                        </div>
+                        <div class="volume-range" title="Change Volum">
+                            <div class="volume-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Controls -->
+                <div class="controls-right"></div>
+            </div>
+        </div>
     </div>
     
     <!-- Script -->
