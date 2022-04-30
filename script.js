@@ -57,6 +57,8 @@ function setProgress(e) {
 
 // Volume Controls --------------------------- //
 
+let lastVolume = 1
+
 // Volume Bar
 function changeVolume(e) {
     let volume = e.offsetX / volumeRange.offsetWidth
@@ -66,7 +68,29 @@ function changeVolume(e) {
     volumeBar.style.width = `${volume * 100}%`
     video.volume = volume
     // Change icon depending on volume
-    
+    volumeIcon.className = ""
+    if (volume > 0.7)   volumeIcon.classList.add("fa-solid", "fa-volume-high")
+    else if (volume < 0.7 && volume > 0)   volumeIcon.classList.add("fa-solid", "fa-volume-low")
+    if (volume === 0)   volumeIcon.classList.add("fa-solid", "fa-volume-xmark")
+    lastVolume = volume
+}
+
+// Mute / Unmute
+function toggleMute() {
+    volumeIcon.className = ""
+    if (video.volume) {
+        lastVolume = video.volume
+        video.volume = 0
+        volumeBar.style.width = 0
+        volumeIcon.setAttribute("title", "Unmute")
+        volumeIcon.classList.add("fa-solid", "fa-volume-xmark")
+    } else {
+        video.volume = lastVolume
+        volumeBar.style.width = `${lastVolume * 100}%`
+        volumeIcon.setAttribute("title", "Mute")
+        if (lastVolume > 0.7)   volumeIcon.classList.add("fa-solid", "fa-volume-high")
+        else if (lastVolume < 0.7 && lastVolume > 0)   volumeIcon.classList.add("fa-solid", "fa-volume-low")
+    }
 }
 
 // Change Playback Speed -------------------- //
@@ -83,3 +107,4 @@ video.addEventListener("timeupdate", updateProgress)
 video.addEventListener("canplay", updateProgress)
 progressRange.addEventListener("click", setProgress)
 volumeRange.addEventListener("click", changeVolume)
+volumeIcon.addEventListener("click", toggleMute)
